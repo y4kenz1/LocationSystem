@@ -1,20 +1,21 @@
 package y4kenz1.locationsystem.model;
 
-import com.sun.istack.NotNull;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 import javax.persistence.*;
 
 @Entity
 public class Location {
-    //TODO: Location should have at least location name and address in US format with blank validation for required fields.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotBlank(message = "Location name cannot be blank")
     private String name;
 
-    @NotNull
+    @NotBlank(message = "Address cannot be blank")
+    @Pattern(regexp = "^[0-9]+\\s[A-Za-z]+\\s[A-Za-z]+,\\s[A-Za-z]+,\\s[A-Z]{2}\\s[0-9]{5}$", message = "Invalid US address format")
     private String address;
 
     @ManyToOne
