@@ -1,7 +1,12 @@
 package y4kenz1.locationsystem.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Setter
+@Getter
 @Entity
 public class SharedLocation {
     @Id
@@ -18,9 +23,5 @@ public class SharedLocation {
 
     @Enumerated(EnumType.STRING)
     private AccessType accessType;
-}
 
-enum AccessType {
-    READ_ONLY,
-    ADMIN
 }
