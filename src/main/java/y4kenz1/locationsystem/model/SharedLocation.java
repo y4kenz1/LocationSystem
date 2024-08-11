@@ -5,8 +5,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Setter
-@Getter
 @Entity
 public class SharedLocation {
     @Id
@@ -24,4 +22,35 @@ public class SharedLocation {
     @Enumerated(EnumType.STRING)
     private AccessType accessType;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public AccessType getAccessType() {
+        return accessType;
+    }
+
+    public void setAccessType(AccessType accessType) {
+        this.accessType = accessType;
+    }
 }
